@@ -32,23 +32,29 @@ class SignInButton extends StatelessWidget {
   // overrides the default button elevation
   final double elevation;
 
+  /// overrides the default text overflow
+  final TextOverflow? overflow;
+
+  /// overrides the default max lines in case of text overflow
+  final int maxLines;
+
   /// The constructor is fairly self-explanatory.
   const SignInButton(
     this.button, {
-    Key? key,
     required this.onPressed,
     this.mini = false,
     this.padding = const EdgeInsets.all(0),
     this.shape,
     this.text,
     this.elevation = 2.0,
-  })  : assert(
+    this.overflow = TextOverflow.ellipsis,
+    this.maxLines = 1,
+  }) : assert(
             mini != true ||
                 !(button == Buttons.Google ||
                     button == Buttons.GoogleDark ||
                     button == Buttons.FacebookNew),
-            'Google and FacebookNew buttons do not support mini mode'),
-        super(key: key);
+            'Google and FacebookNew buttons do not support mini mode');
 
   /// The build function is used to build the widget which will switch to
   /// desired widget based on the enum class `Buttons`
@@ -87,6 +93,8 @@ class SignInButton extends StatelessWidget {
           innerPadding: const EdgeInsets.all(0),
           shape: shape,
           height: 36.0,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Facebook:
       case Buttons.FacebookNew:
@@ -116,6 +124,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.GitHub:
         return SignInButtonBuilder(
@@ -128,6 +138,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Apple:
       case Buttons.AppleDark:
@@ -145,6 +157,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.LinkedIn:
         return SignInButtonBuilder(
@@ -157,6 +171,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Pinterest:
         return SignInButtonBuilder(
@@ -169,6 +185,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Tumblr:
         return SignInButtonBuilder(
@@ -181,6 +199,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Twitter:
         return SignInButtonBuilder(
@@ -193,6 +213,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Reddit:
         return SignInButtonBuilder(
@@ -205,6 +227,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Quora:
         return SignInButtonBuilder(
@@ -216,6 +240,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Yahoo:
         return SignInButtonBuilder(
@@ -227,6 +253,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Hotmail:
         return SignInButtonBuilder(
@@ -238,6 +266,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Xbox:
         return SignInButtonBuilder(
@@ -249,6 +279,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Microsoft:
         return SignInButtonBuilder(
@@ -260,6 +292,8 @@ class SignInButton extends StatelessWidget {
           onPressed: onPressed,
           padding: padding,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
       case Buttons.Email:
       default:
@@ -273,6 +307,8 @@ class SignInButton extends StatelessWidget {
           padding: padding,
           backgroundColor: Colors.grey[700]!,
           shape: shape,
+          overflow: overflow,
+          maxLines: maxLines,
         );
     }
   }
